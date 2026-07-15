@@ -1,0 +1,339 @@
+{
+  "analysis": "Backtest ROI Analysis",
+  "description": "Đánh giá giá trị ứng dụng thực tế của model bằng cách mô phỏng chiến lược đặt cược trên tập test (dữ liệu model chưa thấy). ROI cho biết nếu đặt cược theo dự đoán của model thì lãi/lỗ bao nhiêu.",
+  "odds_columns_used": [
+    "p1_avg_odds",
+    "p2_avg_odds"
+  ],
+  "n_matches_with_odds": 2016,
+  "n_matches_total": 32168,
+  "results_by_model": {
+    "CatBoost_tuned": {
+      "model": "CatBoost_tuned",
+      "strategies": [
+        {
+          "strategy": "Flat (threshold=0.5)",
+          "threshold": 0.5,
+          "n_bets": 1052,
+          "wins": 714,
+          "win_rate_pct": 67.87,
+          "total_profit_units": -30.02,
+          "roi_pct": -2.85
+        },
+        {
+          "strategy": "Flat (threshold=0.55)",
+          "threshold": 0.55,
+          "n_bets": 849,
+          "wins": 617,
+          "win_rate_pct": 72.67,
+          "total_profit_units": -2.27,
+          "roi_pct": -0.27
+        },
+        {
+          "strategy": "Flat (threshold=0.6)",
+          "threshold": 0.6,
+          "n_bets": 662,
+          "wins": 501,
+          "win_rate_pct": 75.68,
+          "total_profit_units": -7.89,
+          "roi_pct": -1.19
+        },
+        {
+          "strategy": "Flat (threshold=0.65)",
+          "threshold": 0.65,
+          "n_bets": 520,
+          "wins": 410,
+          "win_rate_pct": 78.85,
+          "total_profit_units": -3.76,
+          "roi_pct": -0.72
+        },
+        {
+          "strategy": "Value Betting (margin=0.0)",
+          "n_bets": 615,
+          "wins": 301,
+          "win_rate_pct": 48.94,
+          "total_profit_units": -33.9,
+          "roi_pct": -5.51
+        },
+        {
+          "strategy": "Value Betting (margin=0.05)",
+          "n_bets": 154,
+          "wins": 80,
+          "win_rate_pct": 51.95,
+          "total_profit_units": 5.83,
+          "roi_pct": 3.79
+        },
+        {
+          "strategy": "Value Betting (margin=0.1)",
+          "n_bets": 35,
+          "wins": 17,
+          "win_rate_pct": 48.57,
+          "total_profit_units": 4.85,
+          "roi_pct": 13.86
+        }
+      ]
+    },
+    "LightGBM_tuned": {
+      "model": "LightGBM_tuned",
+      "strategies": [
+        {
+          "strategy": "Flat (threshold=0.5)",
+          "threshold": 0.5,
+          "n_bets": 1034,
+          "wins": 702,
+          "win_rate_pct": 67.89,
+          "total_profit_units": -26.27,
+          "roi_pct": -2.54
+        },
+        {
+          "strategy": "Flat (threshold=0.55)",
+          "threshold": 0.55,
+          "n_bets": 840,
+          "wins": 598,
+          "win_rate_pct": 71.19,
+          "total_profit_units": -21.81,
+          "roi_pct": -2.6
+        },
+        {
+          "strategy": "Flat (threshold=0.6)",
+          "threshold": 0.6,
+          "n_bets": 665,
+          "wins": 495,
+          "win_rate_pct": 74.44,
+          "total_profit_units": -20.07,
+          "roi_pct": -3.02
+        },
+        {
+          "strategy": "Flat (threshold=0.65)",
+          "threshold": 0.65,
+          "n_bets": 510,
+          "wins": 401,
+          "win_rate_pct": 78.63,
+          "total_profit_units": -7.38,
+          "roi_pct": -1.45
+        },
+        {
+          "strategy": "Value Betting (margin=0.0)",
+          "n_bets": 619,
+          "wins": 319,
+          "win_rate_pct": 51.53,
+          "total_profit_units": -34.58,
+          "roi_pct": -5.59
+        },
+        {
+          "strategy": "Value Betting (margin=0.05)",
+          "n_bets": 175,
+          "wins": 87,
+          "win_rate_pct": 49.71,
+          "total_profit_units": 5.95,
+          "roi_pct": 3.4
+        },
+        {
+          "strategy": "Value Betting (margin=0.1)",
+          "n_bets": 38,
+          "wins": 17,
+          "win_rate_pct": 44.74,
+          "total_profit_units": 0.05,
+          "roi_pct": 0.13
+        }
+      ]
+    },
+    "RandomForest_tuned": {
+      "model": "RandomForest_tuned",
+      "strategies": [
+        {
+          "strategy": "Flat (threshold=0.5)",
+          "threshold": 0.5,
+          "n_bets": 1052,
+          "wins": 713,
+          "win_rate_pct": 67.78,
+          "total_profit_units": -33.72,
+          "roi_pct": -3.21
+        },
+        {
+          "strategy": "Flat (threshold=0.55)",
+          "threshold": 0.55,
+          "n_bets": 844,
+          "wins": 614,
+          "win_rate_pct": 72.75,
+          "total_profit_units": -8.69,
+          "roi_pct": -1.03
+        },
+        {
+          "strategy": "Flat (threshold=0.6)",
+          "threshold": 0.6,
+          "n_bets": 614,
+          "wins": 474,
+          "win_rate_pct": 77.2,
+          "total_profit_units": -5.2,
+          "roi_pct": -0.85
+        },
+        {
+          "strategy": "Flat (threshold=0.65)",
+          "threshold": 0.65,
+          "n_bets": 440,
+          "wins": 348,
+          "win_rate_pct": 79.09,
+          "total_profit_units": -15.48,
+          "roi_pct": -3.52
+        },
+        {
+          "strategy": "Value Betting (margin=0.0)",
+          "n_bets": 594,
+          "wins": 269,
+          "win_rate_pct": 45.29,
+          "total_profit_units": -28.21,
+          "roi_pct": -4.75
+        },
+        {
+          "strategy": "Value Betting (margin=0.05)",
+          "n_bets": 147,
+          "wins": 55,
+          "win_rate_pct": 37.41,
+          "total_profit_units": -6.42,
+          "roi_pct": -4.37
+        },
+        {
+          "strategy": "Value Betting (margin=0.1)",
+          "n_bets": 30,
+          "wins": 8,
+          "win_rate_pct": 26.67,
+          "total_profit_units": 5.85,
+          "roi_pct": 19.5
+        }
+      ]
+    },
+    "CatBoost_baseline": {
+      "model": "CatBoost_baseline",
+      "strategies": [
+        {
+          "strategy": "Flat (threshold=0.5)",
+          "threshold": 0.5,
+          "n_bets": 964,
+          "wins": 671,
+          "win_rate_pct": 69.61,
+          "total_profit_units": -21.03,
+          "roi_pct": -2.18
+        },
+        {
+          "strategy": "Flat (threshold=0.55)",
+          "threshold": 0.55,
+          "n_bets": 782,
+          "wins": 575,
+          "win_rate_pct": 73.53,
+          "total_profit_units": -5.08,
+          "roi_pct": -0.65
+        },
+        {
+          "strategy": "Flat (threshold=0.6)",
+          "threshold": 0.6,
+          "n_bets": 599,
+          "wins": 462,
+          "win_rate_pct": 77.13,
+          "total_profit_units": -3.67,
+          "roi_pct": -0.61
+        },
+        {
+          "strategy": "Flat (threshold=0.65)",
+          "threshold": 0.65,
+          "n_bets": 478,
+          "wins": 376,
+          "win_rate_pct": 78.66,
+          "total_profit_units": -13.14,
+          "roi_pct": -2.75
+        },
+        {
+          "strategy": "Value Betting (margin=0.0)",
+          "n_bets": 570,
+          "wins": 280,
+          "win_rate_pct": 49.12,
+          "total_profit_units": -51.2,
+          "roi_pct": -8.98
+        },
+        {
+          "strategy": "Value Betting (margin=0.05)",
+          "n_bets": 147,
+          "wins": 69,
+          "win_rate_pct": 46.94,
+          "total_profit_units": -3.57,
+          "roi_pct": -2.43
+        },
+        {
+          "strategy": "Value Betting (margin=0.1)",
+          "n_bets": 32,
+          "wins": 15,
+          "win_rate_pct": 46.88,
+          "total_profit_units": 2.17,
+          "roi_pct": 6.78
+        }
+      ]
+    },
+    "LightGBM_baseline": {
+      "model": "LightGBM_baseline",
+      "strategies": [
+        {
+          "strategy": "Flat (threshold=0.5)",
+          "threshold": 0.5,
+          "n_bets": 989,
+          "wins": 673,
+          "win_rate_pct": 68.05,
+          "total_profit_units": -29.87,
+          "roi_pct": -3.02
+        },
+        {
+          "strategy": "Flat (threshold=0.55)",
+          "threshold": 0.55,
+          "n_bets": 828,
+          "wins": 590,
+          "win_rate_pct": 71.26,
+          "total_profit_units": -18.19,
+          "roi_pct": -2.2
+        },
+        {
+          "strategy": "Flat (threshold=0.6)",
+          "threshold": 0.6,
+          "n_bets": 661,
+          "wins": 495,
+          "win_rate_pct": 74.89,
+          "total_profit_units": -9.97,
+          "roi_pct": -1.51
+        },
+        {
+          "strategy": "Flat (threshold=0.65)",
+          "threshold": 0.65,
+          "n_bets": 516,
+          "wins": 404,
+          "win_rate_pct": 78.29,
+          "total_profit_units": -5.15,
+          "roi_pct": -1.0
+        },
+        {
+          "strategy": "Value Betting (margin=0.0)",
+          "n_bets": 580,
+          "wins": 292,
+          "win_rate_pct": 50.34,
+          "total_profit_units": -45.29,
+          "roi_pct": -7.81
+        },
+        {
+          "strategy": "Value Betting (margin=0.05)",
+          "n_bets": 195,
+          "wins": 96,
+          "win_rate_pct": 49.23,
+          "total_profit_units": -3.24,
+          "roi_pct": -1.66
+        },
+        {
+          "strategy": "Value Betting (margin=0.1)",
+          "n_bets": 61,
+          "wins": 31,
+          "win_rate_pct": 50.82,
+          "total_profit_units": 6.53,
+          "roi_pct": 10.7
+        }
+      ]
+    }
+  },
+  "best_model": "CatBoost_baseline",
+  "best_roi_flat_pct": -2.18
+}

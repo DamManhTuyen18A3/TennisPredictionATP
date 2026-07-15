@@ -1,0 +1,53 @@
+{
+    "CatBoost_baseline": {
+        "accuracy": 0.6798,
+        "auc": 0.7498,
+        "f1": 0.6827,
+        "log_loss": 0.5907,
+        "brier_score": 0.2029
+    },
+    "LightGBM_baseline": {
+        "accuracy": 0.6787,
+        "auc": 0.7466,
+        "f1": 0.6825,
+        "log_loss": 0.594,
+        "brier_score": 0.2043
+    },
+    "CatBoost_tuned": {
+        "accuracy": 0.6926,
+        "auc": 0.765,
+        "f1": 0.6965,
+        "log_loss": 0.5762,
+        "brier_score": 0.197
+    },
+    "LightGBM_tuned": {
+        "accuracy": 0.6917,
+        "auc": 0.7663,
+        "f1": 0.6945,
+        "log_loss": 0.5737,
+        "brier_score": 0.1962
+    },
+    "RandomForest_tuned": {
+        "accuracy": 0.6878,
+        "auc": 0.7577,
+        "f1": 0.6916,
+        "log_loss": 0.5849,
+        "brier_score": 0.2003
+    },
+    "Baseline_HigherRank": {
+        "accuracy": 0.6504,
+        "auc": 0.6951,
+        "f1": 0.6514,
+        "log_loss": 0.9176,
+        "brier_score": 0.2645,
+        "note": "Evaluated on 28014/32168 rows"
+    },
+    "Baseline_FollowOdds": {
+        "accuracy": 0.678,
+        "auc": 0.739,
+        "f1": 0.6744,
+        "log_loss": 0.5994,
+        "brier_score": 0.2068,
+        "note": "Evaluated on 2006/32168 rows with valid odds"
+    }
+}

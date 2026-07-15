@@ -1,0 +1,60 @@
+{
+  "reference_model": "CatBoost_tuned",
+  "bootstrap_confidence_intervals": {
+    "CatBoost_tuned": {
+      "point_estimate": 0.7498,
+      "ci_lower_95": 0.7444,
+      "ci_upper_95": 0.7548,
+      "std": 0.0026,
+      "n_bootstrap": 1000
+    },
+    "CatBoost_baseline": {
+      "point_estimate": 0.7498,
+      "ci_lower_95": 0.7444,
+      "ci_upper_95": 0.7548,
+      "std": 0.0026,
+      "n_bootstrap": 1000
+    },
+    "LightGBM_baseline": {
+      "point_estimate": 0.7466,
+      "ci_lower_95": 0.7412,
+      "ci_upper_95": 0.7515,
+      "std": 0.0026,
+      "n_bootstrap": 1000
+    },
+    "RandomForest_baseline": {
+      "point_estimate": 0.7412,
+      "ci_lower_95": 0.7359,
+      "ci_upper_95": 0.7465,
+      "std": 0.0027,
+      "n_bootstrap": 1000
+    }
+  },
+  "delong_pairwise_tests": {
+    "CatBoost_tuned_vs_CatBoost_baseline": {
+      "auc_a": 0.7498,
+      "auc_b": 0.7498,
+      "diff": 0.0,
+      "z_score": 0.0,
+      "p_value": 1.0,
+      "significant_at_0.05": false
+    },
+    "CatBoost_tuned_vs_LightGBM_baseline": {
+      "auc_a": 0.7498,
+      "auc_b": 0.7466,
+      "diff": 0.0032,
+      "z_score": 3.8271,
+      "p_value": 0.0001,
+      "significant_at_0.05": true
+    },
+    "CatBoost_tuned_vs_RandomForest_baseline": {
+      "auc_a": 0.7498,
+      "auc_b": 0.7412,
+      "diff": 0.0086,
+      "z_score": 6.4149,
+      "p_value": 0.0,
+      "significant_at_0.05": true
+    }
+  },
+  "methodology_note": "DeLong's test (Sun & Xu, 2014) so sánh AUC của 2 mô hình được đánh giá trên CÙNG 1 tập test (correlated ROC curves), cho ra p-value kiểm định giả thuyết H0: 2 model có AUC bằng nhau. Bootstrap CI ước lượng khoảng tin cậy 95% cho AUC của từng model bằng 1000 lần resample có hoàn lại trên tập test."
+}

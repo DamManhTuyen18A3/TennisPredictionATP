@@ -1,0 +1,8 @@
+,accuracy,auc,f1,log_loss,brier_score,note
+CatBoost_baseline,0.6798,0.7498,0.6827,0.5907,0.2029,
+LightGBM_baseline,0.6787,0.7466,0.6825,0.594,0.2043,
+CatBoost_tuned,0.6926,0.765,0.6965,0.5762,0.197,
+LightGBM_tuned,0.6917,0.7663,0.6945,0.5737,0.1962,
+RandomForest_tuned,0.6878,0.7577,0.6916,0.5849,0.2003,
+Baseline_HigherRank,0.6504,0.6951,0.6514,0.9176,0.2645,Evaluated on 28014/32168 rows
+Baseline_FollowOdds,0.678,0.739,0.6744,0.5994,0.2068,Evaluated on 2006/32168 rows with valid odds

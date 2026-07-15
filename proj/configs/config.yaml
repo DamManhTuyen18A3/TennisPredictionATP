@@ -1,0 +1,26 @@
+# Data paths
+data:
+  raw_dir: "data/raw"
+  interim_dir: "data/interim"
+  processed_dir: "data/processed"
+  features_dir: "data/features"
+  external_dir: "data/external"
+  raw_file: "atp_matches_with_odds_2020_2025.csv"
+
+# Model paths
+model:
+  models_dir: "models"
+  tuned_dir: "models/tuned"
+  final_dir: "models/final"
+  artifacts_dir: "artifacts"
+
+# Reports
+reports:
+  figures_dir: "reports/figures"
+  shap_dir: "reports/shap_plots"
+  metrics_file: "experiments/metrics.json"
+
+# Logging
+logging:
+  level: "INFO"
+  log_dir: "logs"

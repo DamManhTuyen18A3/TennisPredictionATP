@@ -1,0 +1,403 @@
+2026-07-13 20:30:09,636 - __main__ - INFO - Bắt đầu tải dữ liệu thô từ: D:\ATP_Prediction_Project_FIXED\proj\data\raw\atp_matches_with_odds_2020_2025.csv
+2026-07-13 20:30:13,741 - __main__ - INFO - Đã tải thành công dữ liệu gốc. Kích thước (dòng, cột): (157081, 61)
+2026-07-13 20:30:14,816 - __main__ - INFO - Đã lưu dữ liệu tạm thời tại: D:\ATP_Prediction_Project_FIXED\proj\data\interim\01_loaded.parquet
+2026-07-13 20:30:25,986 - __main__ - INFO - Bắt đầu validate dữ liệu từ: D:\ATP_Prediction_Project_FIXED\proj\data\interim\01_loaded.parquet
+2026-07-13 20:30:26,657 - __main__ - INFO - Dữ liệu đã chứa đủ các cột cơ bản được mong đợi.
+2026-07-13 20:30:30,056 - __main__ - INFO - Đã hoàn thành validation và lưu tại: D:\ATP_Prediction_Project_FIXED\proj\data\interim\02_validated.parquet
+2026-07-13 20:31:24,340 - __main__ - INFO - Bắt đầu clean schema từ: D:\ATP_Prediction_Project_FIXED\proj\data\interim\02_validated.parquet
+2026-07-13 20:31:24,863 - __main__ - INFO - Đã parse thành công tourney_date sang datetime.
+2026-07-13 20:31:25,327 - __main__ - INFO - Đã hoàn thành clean schema và lưu tại: D:\ATP_Prediction_Project_FIXED\proj\data\interim\03_cleaned_schema.parquet
+2026-07-13 20:31:27,273 - __main__ - INFO - Bắt đầu xử lý missing values từ: D:\ATP_Prediction_Project_FIXED\proj\data\interim\03_cleaned_schema.parquet
+2026-07-13 20:31:28,260 - __main__ - INFO - Đã hoàn thành xử lý missing values và lưu tại: D:\ATP_Prediction_Project_FIXED\proj\data\interim\04_handled_missing.parquet
+2026-07-13 20:31:29,943 - __main__ - INFO - Bắt đầu remove data leakage từ: D:\ATP_Prediction_Project_FIXED\proj\data\interim\04_handled_missing.parquet
+2026-07-13 20:31:30,138 - __main__ - INFO - Đã loại bỏ các cột gây leakage: ['w_ace', 'w_df', 'w_svpt', 'w_1stin', 'w_1stwon', 'w_2ndwon', 'l_ace', 'l_df', 'l_svpt', 'l_1stin', 'l_1stwon', 'l_2ndwon', 'w_svgms', 'w_bpsaved', 'w_bpfaced', 'l_svgms', 'l_bpsaved', 'l_bpfaced', 'minutes', 'score']
+2026-07-13 20:31:30,652 - __main__ - INFO - Đã hoàn thành remove data leakage và lưu tại: D:\ATP_Prediction_Project_FIXED\proj\data\processed\05_clean_data.parquet
+2026-07-13 20:31:36,270 - __main__ - INFO - Bắt đầu EDA toàn diện trên dữ liệu: D:\ATP_Prediction_Project_FIXED\proj\data\processed\05_clean_data.parquet
+2026-07-13 20:31:36,424 - __main__ - INFO - Tạo bảng thống kê mô tả...
+2026-07-13 20:31:37,031 - __main__ - INFO - Biểu đồ 1: Tourney Level Distribution
+2026-07-13 20:31:37,289 - __main__ - INFO - Biểu đồ 2: Surface Distribution
+2026-07-13 20:31:37,453 - __main__ - INFO - Biểu đồ 3: Yearly Match Trend
+2026-07-13 20:31:37,633 - __main__ - INFO - Biểu đồ 4: Winner/Loser Hand Distribution
+2026-07-13 20:31:37,875 - __main__ - INFO - Biểu đồ 5: Rank Correlation Scatter
+2026-07-13 20:31:39,075 - __main__ - INFO - Biểu đồ 6: Rank Distribution
+2026-07-13 20:31:39,423 - __main__ - INFO - Biểu đồ 7: Correlation Heatmap
+2026-07-13 20:31:39,858 - __main__ - INFO - Biểu đồ 8: Odds Distribution
+2026-07-13 20:31:40,350 - __main__ - INFO - Biểu đồ 9: Upset Rate Analysis
+2026-07-13 20:31:40,674 - __main__ - INFO - Biểu đồ 10: Age Distribution
+2026-07-13 20:31:40,946 - __main__ - INFO - Đã hoàn thành EDA toàn diện. 10 biểu đồ + thống kê lưu tại: D:\ATP_Prediction_Project_FIXED\proj\reports\figures
+2026-07-13 20:31:43,376 - __main__ - INFO - Bắt đầu Feature Engineering từ: D:\ATP_Prediction_Project_FIXED\proj\data\processed\05_clean_data.parquet
+2026-07-13 20:31:43,856 - __main__ - INFO - Đang tính toán Elo ratings theo lịch sử (pre-match)...
+2026-07-13 20:31:44,027 - __main__ - INFO - Đang tính toán Head-to-Head theo lịch sử (pre-match)...
+2026-07-13 20:31:44,315 - __main__ - INFO - Chuyển đổi dữ liệu Winner/Loser thành Player_A/Player_B...
+2026-07-13 20:31:45,019 - __main__ - INFO - Đã hoàn thành Feature Engineering. Data shape: (157081, 57). Target ratio: 0.50
+2026-07-13 20:31:45,019 - __main__ - INFO - Lưu tại: D:\ATP_Prediction_Project_FIXED\proj\data\features\07_engineered_features.parquet
+2026-07-13 20:31:47,548 - __main__ - INFO - Bắt đầu Feature Selection từ: D:\ATP_Prediction_Project_FIXED\proj\data\features\07_engineered_features.parquet
+2026-07-13 20:31:47,790 - __main__ - INFO - Các features sẽ đưa vào mô hình: ['p1_b365', 'p2_b365', 'p1_ps', 'p2_ps', 'p1_max_odds', 'p2_max_odds', 'p1_avg_odds', 'p2_avg_odds', 'p1_bfe', 'p2_bfe', 'p1_h2h_wins', 'p2_h2h_wins', 'year', 'surface', 'draw_size', 'tourney_level', 'tourney_date', 'p1_seed', 'p2_seed', 'p1_entry', 'p2_entry', 'p1_hand', 'p2_hand', 'p1_ht', 'p2_ht', 'p1_ioc', 'p2_ioc', 'p1_age', 'p2_age', 'best_of', 'round', 'p1_rank', 'p2_rank', 'p1_rank_points', 'p2_rank_points', 'match_category', 'p1_elo', 'p2_elo', 'rank_diff', 'rank_points_diff', 'age_diff', 'ht_diff', 'elo_diff', 'h2h_diff', 'b365_implied_prob_diff', 'ps_implied_prob_diff', 'max_odds_implied_prob_diff', 'avg_odds_implied_prob_diff', 'bfe_implied_prob_diff', 'target']
+2026-07-13 20:31:48,061 - __main__ - INFO - Đã hoàn thành Feature Selection. Shape: (157081, 50). Lưu tại: D:\ATP_Prediction_Project_FIXED\proj\data\features\08_selected_features.parquet
+2026-07-13 20:31:52,502 - __main__ - INFO - Bắt đầu Split Dataset từ: D:\ATP_Prediction_Project_FIXED\proj\data\features\08_selected_features.parquet
+2026-07-13 20:31:52,692 - __main__ - INFO - Kích thước tập Train: (91913, 50)
+2026-07-13 20:31:52,693 - __main__ - INFO - Kích thước tập Validation: (33000, 50)
+2026-07-13 20:31:52,693 - __main__ - INFO - Kích thước tập Test: (32168, 50)
+2026-07-13 20:31:52,973 - __main__ - INFO - Đã chia xong và lưu vào thư mục features_dir.
+2026-07-13 20:31:59,095 - __main__ - INFO - Bắt đầu huấn luyện các mô hình Baseline...
+2026-07-13 20:31:59,375 - __main__ - INFO - Đang huấn luyện RandomForest...
+2026-07-13 20:32:22,636 - __main__ - INFO - RandomForest - Val Acc: 0.6722, Val AUC: 0.7399
+2026-07-13 20:32:25,434 - __main__ - INFO - Đang huấn luyện XGBoost...
+2026-07-13 20:32:30,024 - __main__ - INFO - XGBoost - Val Acc: 0.6661, Val AUC: 0.7333
+2026-07-13 20:32:30,035 - __main__ - INFO - Đang huấn luyện LightGBM...
+2026-07-13 20:32:35,644 - __main__ - INFO - LightGBM - Val Acc: 0.6802, Val AUC: 0.7480
+2026-07-13 20:32:35,666 - __main__ - INFO - Đang huấn luyện CatBoost...
+2026-07-13 20:32:51,092 - __main__ - INFO - CatBoost - Val Acc: 0.6826, Val AUC: 0.7529
+2026-07-13 20:32:51,191 - __main__ - INFO - Hoàn thành huấn luyện baseline models.
+2026-07-13 20:33:24,378 - __main__ - INFO - ============================================================
+2026-07-13 20:33:24,378 - __main__ - INFO - BẮT ĐẦU HYPERPARAMETER TUNING THẬT (Optuna + TimeSeriesCV)
+2026-07-13 20:33:24,378 - __main__ - INFO - Cấu hình: 8 trials/model, 2 folds TimeSeriesSplit, early stopping 30 vòng, có pruning.
+2026-07-13 20:33:24,379 - __main__ - INFO - ============================================================
+2026-07-13 20:33:25,176 - __main__ - INFO - 
+[1/4] Tuning CatBoost...
+2026-07-13 20:43:48,574 - __main__ - INFO - ============================================================
+2026-07-13 20:43:48,574 - __main__ - INFO - BẮT ĐẦU HYPERPARAMETER TUNING THẬT (Optuna + TimeSeriesCV)
+2026-07-13 20:43:48,574 - __main__ - INFO - Cấu hình: 10 trials/model, 2 folds TimeSeriesSplit, early stopping 30 vòng, có pruning.
+2026-07-13 20:43:48,575 - __main__ - INFO - ============================================================
+2026-07-13 20:43:50,702 - __main__ - INFO - 
+[1/4] Tuning CatBoost...
+2026-07-13 20:55:35,853 - __main__ - INFO - CatBoost best AUC: 0.7489 (mất 705s, 10 trials, 5 bị cắt sớm)
+2026-07-13 20:55:35,854 - __main__ - INFO - CatBoost best params: {'depth': 10, 'learning_rate': 0.048068241453293054, 'iterations': 250, 'l2_leaf_reg': 6.364226912831503, 'random_strength': 0.038128778966630694, 'bagging_temperature': 0.9673494259187038}
+2026-07-13 20:57:59,713 - __main__ - INFO - 
+[2/4] Tuning LightGBM...
+2026-07-13 20:58:35,806 - __main__ - INFO - LightGBM best AUC: 0.7471 (mất 36s, 10 trials, 3 bị cắt sớm)
+2026-07-13 20:58:35,806 - __main__ - INFO - LightGBM best params: {'num_leaves': 128, 'learning_rate': 0.02008375322689831, 'n_estimators': 450, 'min_child_samples': 38, 'subsample': 0.7748217306283465, 'colsample_bytree': 0.5467108360648486, 'reg_alpha': 1.180809978028877e-07, 'reg_lambda': 0.00011162254727759719}
+2026-07-13 20:58:44,755 - __main__ - INFO - 
+[3/4] Tuning XGBoost...
+2026-07-13 21:00:57,915 - __main__ - INFO - XGBoost best AUC: 0.7480 (mất 133s, 10 trials, 3 bị cắt sớm)
+2026-07-13 21:00:57,915 - __main__ - INFO - XGBoost best params: {'max_depth': 9, 'learning_rate': 0.01487300397890142, 'n_estimators': 300, 'min_child_weight': 8, 'subsample': 0.9719822207841267, 'colsample_bytree': 0.7044040936061595, 'gamma': 0.34073482514704545, 'reg_alpha': 0.0006071568562908673, 'reg_lambda': 1.6564450032083355e-08}
+2026-07-13 21:01:13,390 - __main__ - INFO - 
+[4/4] Tuning RandomForest...
+2026-07-13 21:04:01,777 - __main__ - INFO - RandomForest best AUC: 0.7464 (mất 168s, 10 trials, 5 bị cắt sớm)
+2026-07-13 21:04:01,778 - __main__ - INFO - RandomForest best params: {'n_estimators': 300, 'max_depth': 15, 'min_samples_split': 11, 'min_samples_leaf': 4, 'max_features': 'sqrt'}
+2026-07-13 21:04:30,793 - __main__ - INFO - ============================================================
+2026-07-13 21:04:30,794 - __main__ - INFO - HOÀN THÀNH HYPERPARAMETER TUNING
+2026-07-13 21:04:30,794 - __main__ - INFO - Tổng thời gian: 1240s (~20.7 phút)
+2026-07-13 21:04:30,795 - __main__ - INFO -   CatBoost: CV AUC = 0.7489 (849s)
+2026-07-13 21:04:30,795 - __main__ - INFO -   LightGBM: CV AUC = 0.7471 (45s)
+2026-07-13 21:04:30,796 - __main__ - INFO -   XGBoost: CV AUC = 0.7480 (149s)
+2026-07-13 21:04:30,796 - __main__ - INFO -   RandomForest: CV AUC = 0.7464 (197s)
+2026-07-13 21:04:30,796 - __main__ - INFO - Kết quả chi tiết: D:\ATP_Prediction_Project_FIXED\proj\experiments\tuning_results.json
+2026-07-13 21:04:30,796 - __main__ - INFO - Tuned models: D:\ATP_Prediction_Project_FIXED\proj\models\tuned
+2026-07-13 21:04:30,797 - __main__ - INFO - ============================================================
+2026-07-13 21:04:40,160 - __main__ - INFO - ============================================================
+2026-07-13 21:04:40,160 - __main__ - INFO - BẮT ĐẦU ĐÁNH GIÁ TOÀN DIỆN TRÊN TẬP TEST
+2026-07-13 21:04:40,160 - __main__ - INFO - ============================================================
+2026-07-13 21:04:40,505 - __main__ - INFO - CatBoost_baseline: AUC=0.7498, Acc=0.6798, F1=0.6827, LogLoss=0.5907, Brier=0.2029
+2026-07-13 21:04:43,313 - __main__ - INFO - LightGBM_baseline: AUC=0.7466, Acc=0.6787, F1=0.6825, LogLoss=0.594, Brier=0.2043
+2026-07-13 21:04:43,349 - __main__ - ERROR - Lỗi khi evaluate XGBoost_baseline: [21:04:43] C:\actions-runner\_work\xgboost\xgboost\src\data\../data/cat_container.h:29: Found a category not in the training set for the 13th (0-based) column: `carpet`
+2026-07-13 21:04:44,056 - __main__ - ERROR - Lỗi khi evaluate RandomForest_baseline: The feature names should match those that were passed during fit.
+Feature names unseen at fit time:
+- match_category
+- p1_entry
+- p1_hand
+- p1_ioc
+- p2_entry
+- ...
+
+2026-07-13 21:04:44,286 - __main__ - INFO - CatBoost_tuned: AUC=0.765, Acc=0.6926, F1=0.6965, LogLoss=0.5762, Brier=0.197
+2026-07-13 21:04:45,675 - __main__ - INFO - LightGBM_tuned: AUC=0.7663, Acc=0.6917, F1=0.6945, LogLoss=0.5737, Brier=0.1962
+2026-07-13 21:04:45,723 - __main__ - ERROR - Lỗi khi evaluate XGBoost_tuned: [21:04:45] C:\actions-runner\_work\xgboost\xgboost\src\data\../data/cat_container.h:29: Found a category not in the training set for the 13th (0-based) column: `carpet`
+2026-07-13 21:04:47,041 - __main__ - INFO - RandomForest_tuned: AUC=0.7577, Acc=0.6878, F1=0.6916, LogLoss=0.5849, Brier=0.2003
+2026-07-13 21:04:47,042 - __main__ - INFO - 
+--- Baseline Strategies (không ML) ---
+2026-07-13 21:04:47,080 - __main__ - INFO - Always-pick-higher-rank: AUC=0.6951, Acc=0.6504
+2026-07-13 21:04:47,094 - __main__ - INFO - Always-follow-lowest-odds: AUC=0.739, Acc=0.678
+2026-07-13 21:04:47,094 - __main__ - INFO - 
+Đang tạo biểu đồ đánh giá...
+2026-07-13 21:04:49,673 - __main__ - INFO - 
+Model tốt nhất (AUC): LightGBM_tuned
+2026-07-13 21:04:50,127 - __main__ - INFO - 
+Đã lưu metrics tại: D:\ATP_Prediction_Project_FIXED\proj\experiments\test_evaluation.json
+2026-07-13 21:04:50,128 - __main__ - INFO - Đã lưu metrics CSV tại: D:\ATP_Prediction_Project_FIXED\proj\experiments\test_evaluation.csv
+2026-07-13 21:04:50,128 - __main__ - INFO - ============================================================
+2026-07-13 21:04:50,129 - __main__ - INFO - HOÀN THÀNH ĐÁNH GIÁ TOÀN DIỆN
+2026-07-13 21:04:50,129 - __main__ - INFO - ============================================================
+2026-07-13 21:05:25,303 - __main__ - INFO - Bắt đầu giải thích mô hình bằng SHAP...
+2026-07-13 21:05:27,527 - __main__ - INFO - Đã lưu các biểu đồ SHAP tại D:\ATP_Prediction_Project_FIXED\proj\reports\shap_plots
+2026-07-13 21:05:37,108 - __main__ - INFO - ============================================================
+2026-07-13 21:05:37,108 - __main__ - INFO - KIỂM ĐỊNH Ý NGHĨA THỐNG KÊ — DeLong's Test + Bootstrap CI
+2026-07-13 21:05:37,108 - __main__ - INFO - ============================================================
+2026-07-13 21:05:37,109 - __main__ - INFO - Đang tải dữ liệu test + các mô hình đã train...
+2026-07-13 21:05:37,688 - __main__ - INFO - Đã tính prediction cho CatBoost_tuned
+2026-07-13 21:05:38,708 - __main__ - INFO - Đã tính prediction cho LightGBM_tuned
+2026-07-13 21:05:38,767 - __main__ - ERROR - Lỗi khi load/predict XGBoost_tuned: [21:05:38] C:\actions-runner\_work\xgboost\xgboost\src\data\../data/cat_container.h:29: Found a category not in the training set for the 13th (0-based) column: `carpet`
+2026-07-13 21:05:39,976 - __main__ - INFO - Đã tính prediction cho RandomForest_tuned
+2026-07-13 21:05:40,057 - __main__ - INFO - Đã tính prediction cho CatBoost_baseline
+2026-07-13 21:05:41,794 - __main__ - INFO - Đã tính prediction cho LightGBM_baseline
+2026-07-13 21:05:42,496 - __main__ - INFO - Đã tính prediction cho RandomForest_baseline
+2026-07-13 21:05:42,496 - __main__ - INFO - 
+📊 Bootstrap CI (1000 lần resample) cho từng model...
+2026-07-13 21:05:49,967 - __main__ - INFO -   CatBoost_tuned: AUC = 0.765 (95% CI: [0.7597, 0.7699])
+2026-07-13 21:05:58,482 - __main__ - INFO -   LightGBM_tuned: AUC = 0.7663 (95% CI: [0.7611, 0.7712])
+2026-07-13 21:06:06,689 - __main__ - INFO -   RandomForest_tuned: AUC = 0.7577 (95% CI: [0.7525, 0.7627])
+2026-07-13 21:06:14,993 - __main__ - INFO -   CatBoost_baseline: AUC = 0.7498 (95% CI: [0.7444, 0.7548])
+2026-07-13 21:06:22,958 - __main__ - INFO -   LightGBM_baseline: AUC = 0.7466 (95% CI: [0.7412, 0.7515])
+2026-07-13 21:06:29,657 - __main__ - INFO -   RandomForest_baseline: AUC = 0.7412 (95% CI: [0.7359, 0.7465])
+2026-07-13 21:06:29,657 - __main__ - INFO - 
+🔬 DeLong's test — so sánh TẤT CẢ các cặp model...
+2026-07-13 21:06:29,765 - __main__ - INFO -   CatBoost_tuned vs LightGBM_tuned: diff=-0.0014, p=0.051594 (KHÔNG có ý nghĩa ở mức 5%)
+2026-07-13 21:06:29,862 - __main__ - INFO -   CatBoost_tuned vs RandomForest_tuned: diff=0.0073, p=0.000000 (CÓ Ý NGHĨA ở mức 5%)
+2026-07-13 21:06:29,961 - __main__ - INFO -   CatBoost_tuned vs CatBoost_baseline: diff=0.0152, p=0.000000 (CÓ Ý NGHĨA ở mức 5%)
+2026-07-13 21:06:30,069 - __main__ - INFO -   CatBoost_tuned vs LightGBM_baseline: diff=0.0184, p=0.000000 (CÓ Ý NGHĨA ở mức 5%)
+2026-07-13 21:06:30,134 - __main__ - INFO -   CatBoost_tuned vs RandomForest_baseline: diff=0.0237, p=0.000000 (CÓ Ý NGHĨA ở mức 5%)
+2026-07-13 21:06:30,235 - __main__ - INFO -   LightGBM_tuned vs RandomForest_tuned: diff=0.0086, p=0.000000 (CÓ Ý NGHĨA ở mức 5%)
+2026-07-13 21:06:30,337 - __main__ - INFO -   LightGBM_tuned vs CatBoost_baseline: diff=0.0165, p=0.000000 (CÓ Ý NGHĨA ở mức 5%)
+2026-07-13 21:06:30,447 - __main__ - INFO -   LightGBM_tuned vs LightGBM_baseline: diff=0.0198, p=0.000000 (CÓ Ý NGHĨA ở mức 5%)
+2026-07-13 21:06:30,517 - __main__ - INFO -   LightGBM_tuned vs RandomForest_baseline: diff=0.0251, p=0.000000 (CÓ Ý NGHĨA ở mức 5%)
+2026-07-13 21:06:30,624 - __main__ - INFO -   RandomForest_tuned vs CatBoost_baseline: diff=0.0079, p=0.000000 (CÓ Ý NGHĨA ở mức 5%)
+2026-07-13 21:06:30,734 - __main__ - INFO -   RandomForest_tuned vs LightGBM_baseline: diff=0.0112, p=0.000000 (CÓ Ý NGHĨA ở mức 5%)
+2026-07-13 21:06:30,798 - __main__ - INFO -   RandomForest_tuned vs RandomForest_baseline: diff=0.0165, p=0.000000 (CÓ Ý NGHĨA ở mức 5%)
+2026-07-13 21:06:30,907 - __main__ - INFO -   CatBoost_baseline vs LightGBM_baseline: diff=0.0032, p=0.000130 (CÓ Ý NGHĨA ở mức 5%)
+2026-07-13 21:06:30,976 - __main__ - INFO -   CatBoost_baseline vs RandomForest_baseline: diff=0.0086, p=0.000000 (CÓ Ý NGHĨA ở mức 5%)
+2026-07-13 21:06:31,045 - __main__ - INFO -   LightGBM_baseline vs RandomForest_baseline: diff=0.0053, p=0.000231 (CÓ Ý NGHĨA ở mức 5%)
+2026-07-13 21:06:31,045 - __main__ - INFO - 
+🎨 Đang tạo biểu đồ...
+2026-07-13 21:06:31,557 - __main__ - INFO - Biểu đồ: D:\ATP_Prediction_Project_FIXED\proj\reports\figures\statistical_significance.png
+2026-07-13 21:06:31,558 - __main__ - INFO - ============================================================
+2026-07-13 21:06:31,558 - __main__ - INFO - HOÀN THÀNH KIỂM ĐỊNH THỐNG KÊ
+2026-07-13 21:06:31,559 - __main__ - INFO -   Model tốt nhất: LightGBM_tuned (AUC = 0.7663)
+2026-07-13 21:06:31,559 - __main__ - INFO -   Số cặp so sánh: 15
+2026-07-13 21:06:31,559 - __main__ - INFO -   Có ý nghĩa thống kê: 14/15 cặp
+2026-07-13 21:06:31,559 - __main__ - INFO -   Kết quả: experiments\statistical_significance.json
+2026-07-13 21:06:31,559 - __main__ - INFO - ============================================================
+2026-07-13 21:06:57,925 - __main__ - INFO - ============================================================
+2026-07-13 21:06:57,926 - __main__ - INFO - KIỂM ĐỊNH Ý NGHĨA THỐNG KÊ — DeLong's Test + Bootstrap CI
+2026-07-13 21:06:57,926 - __main__ - INFO - ============================================================
+2026-07-13 21:06:57,927 - __main__ - INFO - Đang tải dữ liệu test + các mô hình đã train...
+2026-07-13 21:06:58,340 - __main__ - INFO - Đã tính prediction cho CatBoost_tuned
+2026-07-13 21:06:59,022 - __main__ - INFO - Đã tính prediction cho LightGBM_tuned
+2026-07-13 21:06:59,071 - __main__ - ERROR - Lỗi khi load/predict XGBoost_tuned: [21:06:59] C:\actions-runner\_work\xgboost\xgboost\src\data\../data/cat_container.h:29: Found a category not in the training set for the 13th (0-based) column: `carpet`
+2026-07-13 21:06:59,962 - __main__ - INFO - Đã tính prediction cho RandomForest_tuned
+2026-07-13 21:07:00,032 - __main__ - INFO - Đã tính prediction cho CatBoost_baseline
+2026-07-13 21:07:02,190 - __main__ - INFO - Đã tính prediction cho LightGBM_baseline
+2026-07-13 21:07:02,789 - __main__ - INFO - Đã tính prediction cho RandomForest_baseline
+2026-07-13 21:07:02,790 - __main__ - INFO - 
+📊 Bootstrap CI (1000 lần resample) cho từng model...
+2026-07-13 21:07:10,362 - __main__ - INFO -   CatBoost_tuned: AUC = 0.765 (95% CI: [0.7597, 0.7699])
+2026-07-13 21:07:18,830 - __main__ - INFO -   LightGBM_tuned: AUC = 0.7663 (95% CI: [0.7611, 0.7712])
+2026-07-13 21:07:26,975 - __main__ - INFO -   RandomForest_tuned: AUC = 0.7577 (95% CI: [0.7525, 0.7627])
+2026-07-13 21:07:35,333 - __main__ - INFO -   CatBoost_baseline: AUC = 0.7498 (95% CI: [0.7444, 0.7548])
+2026-07-13 21:07:43,773 - __main__ - INFO -   LightGBM_baseline: AUC = 0.7466 (95% CI: [0.7412, 0.7515])
+2026-07-13 21:07:52,986 - __main__ - INFO -   RandomForest_baseline: AUC = 0.7412 (95% CI: [0.7359, 0.7465])
+2026-07-13 21:07:52,987 - __main__ - INFO - 
+🔬 DeLong's test — so sánh TẤT CẢ các cặp model...
+2026-07-13 21:07:53,255 - __main__ - INFO -   CatBoost_tuned vs LightGBM_tuned: diff=-0.0014, p=0.051594 (KHÔNG có ý nghĩa ở mức 5%)
+2026-07-13 21:07:53,492 - __main__ - INFO -   CatBoost_tuned vs RandomForest_tuned: diff=0.0073, p=0.000000 (CÓ Ý NGHĨA ở mức 5%)
+2026-07-13 21:07:53,720 - __main__ - INFO -   CatBoost_tuned vs CatBoost_baseline: diff=0.0152, p=0.000000 (CÓ Ý NGHĨA ở mức 5%)
+2026-07-13 21:07:53,942 - __main__ - INFO -   CatBoost_tuned vs LightGBM_baseline: diff=0.0184, p=0.000000 (CÓ Ý NGHĨA ở mức 5%)
+2026-07-13 21:07:54,104 - __main__ - INFO -   CatBoost_tuned vs RandomForest_baseline: diff=0.0237, p=0.000000 (CÓ Ý NGHĨA ở mức 5%)
+2026-07-13 21:07:54,345 - __main__ - INFO -   LightGBM_tuned vs RandomForest_tuned: diff=0.0086, p=0.000000 (CÓ Ý NGHĨA ở mức 5%)
+2026-07-13 21:07:54,584 - __main__ - INFO -   LightGBM_tuned vs CatBoost_baseline: diff=0.0165, p=0.000000 (CÓ Ý NGHĨA ở mức 5%)
+2026-07-13 21:07:54,802 - __main__ - INFO -   LightGBM_tuned vs LightGBM_baseline: diff=0.0198, p=0.000000 (CÓ Ý NGHĨA ở mức 5%)
+2026-07-13 21:07:54,961 - __main__ - INFO -   LightGBM_tuned vs RandomForest_baseline: diff=0.0251, p=0.000000 (CÓ Ý NGHĨA ở mức 5%)
+2026-07-13 21:07:55,237 - __main__ - INFO -   RandomForest_tuned vs CatBoost_baseline: diff=0.0079, p=0.000000 (CÓ Ý NGHĨA ở mức 5%)
+2026-07-13 21:07:55,470 - __main__ - INFO -   RandomForest_tuned vs LightGBM_baseline: diff=0.0112, p=0.000000 (CÓ Ý NGHĨA ở mức 5%)
+2026-07-13 21:07:55,631 - __main__ - INFO -   RandomForest_tuned vs RandomForest_baseline: diff=0.0165, p=0.000000 (CÓ Ý NGHĨA ở mức 5%)
+2026-07-13 21:07:55,869 - __main__ - INFO -   CatBoost_baseline vs LightGBM_baseline: diff=0.0032, p=0.000130 (CÓ Ý NGHĨA ở mức 5%)
+2026-07-13 21:07:56,023 - __main__ - INFO -   CatBoost_baseline vs RandomForest_baseline: diff=0.0086, p=0.000000 (CÓ Ý NGHĨA ở mức 5%)
+2026-07-13 21:07:56,234 - __main__ - INFO -   LightGBM_baseline vs RandomForest_baseline: diff=0.0053, p=0.000231 (CÓ Ý NGHĨA ở mức 5%)
+2026-07-13 21:07:56,234 - __main__ - INFO - 
+🎨 Đang tạo biểu đồ...
+2026-07-13 21:07:57,631 - __main__ - INFO - Biểu đồ: D:\ATP_Prediction_Project_FIXED\proj\reports\figures\statistical_significance.png
+2026-07-13 21:07:57,632 - __main__ - INFO - ============================================================
+2026-07-13 21:07:57,633 - __main__ - INFO - HOÀN THÀNH KIỂM ĐỊNH THỐNG KÊ
+2026-07-13 21:07:57,633 - __main__ - INFO -   Model tốt nhất: LightGBM_tuned (AUC = 0.7663)
+2026-07-13 21:07:57,633 - __main__ - INFO -   Số cặp so sánh: 15
+2026-07-13 21:07:57,633 - __main__ - INFO -   Có ý nghĩa thống kê: 14/15 cặp
+2026-07-13 21:07:57,634 - __main__ - INFO -   Kết quả: experiments\statistical_significance.json
+2026-07-13 21:07:57,635 - __main__ - INFO - ============================================================
+2026-07-13 21:08:55,141 - __main__ - INFO - ============================================================
+2026-07-13 21:08:55,142 - __main__ - INFO - PHÂN TÍCH DATA LEAKAGE — ĐÓNG GÓP KHOA HỌC
+2026-07-13 21:08:55,142 - __main__ - INFO - ============================================================
+2026-07-13 21:08:55,494 - __main__ - INFO - Data shape: (157081, 61)
+2026-07-13 21:08:55,494 - __main__ - INFO - Các cột leakage tìm thấy: ['w_ace', 'w_df', 'w_svpt', 'w_1stin', 'w_1stwon', 'w_2ndwon', 'l_ace', 'l_df', 'l_svpt', 'l_1stin', 'l_1stwon', 'l_2ndwon', 'w_svgms', 'w_bpsaved', 'w_bpfaced', 'l_svgms', 'l_bpsaved', 'l_bpfaced', 'minutes']
+2026-07-13 21:08:55,494 - __main__ - INFO - 
+📊 GIAI ĐOẠN 1: Train VỚI data leakage (in-match stats)...
+2026-07-13 21:08:57,436 - __main__ - INFO -   [WITH LEAKAGE] AUC = 0.9860, Accuracy = 0.9333, Num features = 42
+2026-07-13 21:08:57,450 - __main__ - INFO - 
+📊 GIAI ĐOẠN 2: Train KHÔNG CÓ data leakage (pre-match only)...
+2026-07-13 21:08:58,801 - __main__ - INFO -   [NO LEAKAGE] AUC = 0.7562, Accuracy = 0.6817, Num features = 23
+2026-07-13 21:08:58,809 - __main__ - INFO - 
+🎨 Đang tạo biểu đồ...
+2026-07-13 21:08:59,378 - __main__ - INFO - Biểu đồ: D:\ATP_Prediction_Project_FIXED\proj\reports\figures\data_leakage_analysis.png
+2026-07-13 21:08:59,559 - __main__ - INFO - ============================================================
+2026-07-13 21:08:59,559 - __main__ - INFO - KẾT LUẬN DATA LEAKAGE ANALYSIS
+2026-07-13 21:08:59,559 - __main__ - INFO -   WITH leakage:    AUC = 0.9860
+2026-07-13 21:08:59,560 - __main__ - INFO -   WITHOUT leakage: AUC = 0.7562
+2026-07-13 21:08:59,560 - __main__ - INFO -   AUC drop: 0.2298
+2026-07-13 21:08:59,560 - __main__ - INFO -   Report: D:\ATP_Prediction_Project_FIXED\proj\experiments\data_leakage_analysis.json
+2026-07-13 21:08:59,560 - __main__ - INFO - ============================================================
+2026-07-13 21:09:07,564 - __main__ - INFO - ============================================================
+2026-07-13 21:09:07,564 - __main__ - INFO - BACKTEST ROI — ĐÁNH GIÁ GIÁ TRỊ ỨNG DỤNG THỰC TẾ
+2026-07-13 21:09:07,565 - __main__ - INFO - ============================================================
+2026-07-13 21:09:07,753 - __main__ - INFO - Sử dụng odds: p1_avg_odds, p2_avg_odds
+2026-07-13 21:09:07,753 - __main__ - INFO - Số trận có odds hợp lệ: 2016/32168
+2026-07-13 21:09:08,495 - __main__ - INFO - 
+--- CatBoost_tuned ---
+2026-07-13 21:09:08,496 - __main__ - INFO -   Flat (threshold=0.5): 1052 bets, Win=67.9%, ROI=-2.85%
+2026-07-13 21:09:08,496 - __main__ - INFO -   Flat (threshold=0.55): 849 bets, Win=72.7%, ROI=-0.27%
+2026-07-13 21:09:08,497 - __main__ - INFO -   Flat (threshold=0.6): 662 bets, Win=75.7%, ROI=-1.19%
+2026-07-13 21:09:08,497 - __main__ - INFO -   Flat (threshold=0.65): 520 bets, Win=78.8%, ROI=-0.72%
+2026-07-13 21:09:08,497 - __main__ - INFO -   Value Betting (margin=0.0): 615 bets, Win=48.9%, ROI=-5.51%
+2026-07-13 21:09:08,497 - __main__ - INFO -   Value Betting (margin=0.05): 154 bets, Win=52.0%, ROI=3.79%
+2026-07-13 21:09:08,498 - __main__ - INFO -   Value Betting (margin=0.1): 35 bets, Win=48.6%, ROI=13.86%
+2026-07-13 21:09:08,692 - __main__ - INFO - 
+--- LightGBM_tuned ---
+2026-07-13 21:09:08,693 - __main__ - INFO -   Flat (threshold=0.5): 1034 bets, Win=67.9%, ROI=-2.54%
+2026-07-13 21:09:08,693 - __main__ - INFO -   Flat (threshold=0.55): 840 bets, Win=71.2%, ROI=-2.60%
+2026-07-13 21:09:08,693 - __main__ - INFO -   Flat (threshold=0.6): 665 bets, Win=74.4%, ROI=-3.02%
+2026-07-13 21:09:08,694 - __main__ - INFO -   Flat (threshold=0.65): 510 bets, Win=78.6%, ROI=-1.45%
+2026-07-13 21:09:08,694 - __main__ - INFO -   Value Betting (margin=0.0): 619 bets, Win=51.5%, ROI=-5.59%
+2026-07-13 21:09:08,694 - __main__ - INFO -   Value Betting (margin=0.05): 175 bets, Win=49.7%, ROI=3.40%
+2026-07-13 21:09:08,694 - __main__ - INFO -   Value Betting (margin=0.1): 38 bets, Win=44.7%, ROI=0.13%
+2026-07-13 21:09:08,745 - __main__ - ERROR - Lỗi khi backtest XGBoost_tuned: [21:09:08] C:\actions-runner\_work\xgboost\xgboost\src\data\../data/cat_container.h:29: Found a category not in the training set for the 13th (0-based) column: `carpet`
+2026-07-13 21:09:09,255 - __main__ - INFO - 
+--- RandomForest_tuned ---
+2026-07-13 21:09:09,255 - __main__ - INFO -   Flat (threshold=0.5): 1052 bets, Win=67.8%, ROI=-3.21%
+2026-07-13 21:09:09,255 - __main__ - INFO -   Flat (threshold=0.55): 844 bets, Win=72.8%, ROI=-1.03%
+2026-07-13 21:09:09,256 - __main__ - INFO -   Flat (threshold=0.6): 614 bets, Win=77.2%, ROI=-0.85%
+2026-07-13 21:09:09,256 - __main__ - INFO -   Flat (threshold=0.65): 440 bets, Win=79.1%, ROI=-3.52%
+2026-07-13 21:09:09,256 - __main__ - INFO -   Value Betting (margin=0.0): 594 bets, Win=45.3%, ROI=-4.75%
+2026-07-13 21:09:09,256 - __main__ - INFO -   Value Betting (margin=0.05): 147 bets, Win=37.4%, ROI=-4.37%
+2026-07-13 21:09:09,257 - __main__ - INFO -   Value Betting (margin=0.1): 30 bets, Win=26.7%, ROI=19.50%
+2026-07-13 21:09:09,306 - __main__ - INFO - 
+--- CatBoost_baseline ---
+2026-07-13 21:09:09,306 - __main__ - INFO -   Flat (threshold=0.5): 964 bets, Win=69.6%, ROI=-2.18%
+2026-07-13 21:09:09,307 - __main__ - INFO -   Flat (threshold=0.55): 782 bets, Win=73.5%, ROI=-0.65%
+2026-07-13 21:09:09,307 - __main__ - INFO -   Flat (threshold=0.6): 599 bets, Win=77.1%, ROI=-0.61%
+2026-07-13 21:09:09,308 - __main__ - INFO -   Flat (threshold=0.65): 478 bets, Win=78.7%, ROI=-2.75%
+2026-07-13 21:09:09,308 - __main__ - INFO -   Value Betting (margin=0.0): 570 bets, Win=49.1%, ROI=-8.98%
+2026-07-13 21:09:09,309 - __main__ - INFO -   Value Betting (margin=0.05): 147 bets, Win=46.9%, ROI=-2.43%
+2026-07-13 21:09:09,309 - __main__ - INFO -   Value Betting (margin=0.1): 32 bets, Win=46.9%, ROI=6.78%
+2026-07-13 21:09:10,798 - __main__ - INFO - 
+--- LightGBM_baseline ---
+2026-07-13 21:09:10,799 - __main__ - INFO -   Flat (threshold=0.5): 989 bets, Win=68.0%, ROI=-3.02%
+2026-07-13 21:09:10,799 - __main__ - INFO -   Flat (threshold=0.55): 828 bets, Win=71.3%, ROI=-2.20%
+2026-07-13 21:09:10,799 - __main__ - INFO -   Flat (threshold=0.6): 661 bets, Win=74.9%, ROI=-1.51%
+2026-07-13 21:09:10,799 - __main__ - INFO -   Flat (threshold=0.65): 516 bets, Win=78.3%, ROI=-1.00%
+2026-07-13 21:09:10,800 - __main__ - INFO -   Value Betting (margin=0.0): 580 bets, Win=50.3%, ROI=-7.81%
+2026-07-13 21:09:10,800 - __main__ - INFO -   Value Betting (margin=0.05): 195 bets, Win=49.2%, ROI=-1.66%
+2026-07-13 21:09:10,801 - __main__ - INFO -   Value Betting (margin=0.1): 61 bets, Win=50.8%, ROI=10.70%
+2026-07-13 21:09:10,801 - __main__ - INFO - 
+🎨 Đang tạo biểu đồ backtest...
+2026-07-13 21:09:11,349 - __main__ - INFO - ============================================================
+2026-07-13 21:09:11,349 - __main__ - INFO - KẾT QUẢ BACKTEST ROI
+2026-07-13 21:09:11,349 - __main__ - INFO -   CatBoost_tuned: ROI=-2.85%, Win=67.9%, N=1052
+2026-07-13 21:09:11,350 - __main__ - INFO -   LightGBM_tuned: ROI=-2.54%, Win=67.9%, N=1034
+2026-07-13 21:09:11,350 - __main__ - INFO -   RandomForest_tuned: ROI=-3.21%, Win=67.8%, N=1052
+2026-07-13 21:09:11,350 - __main__ - INFO -   CatBoost_baseline: ROI=-2.18%, Win=69.6%, N=964
+2026-07-13 21:09:11,350 - __main__ - INFO -   LightGBM_baseline: ROI=-3.02%, Win=68.0%, N=989
+2026-07-13 21:09:11,351 - __main__ - INFO - Best model: CatBoost_baseline (ROI=-2.18%)
+2026-07-13 21:09:11,351 - __main__ - INFO - Report: D:\ATP_Prediction_Project_FIXED\proj\experiments\backtest_roi.json
+2026-07-13 21:09:11,351 - __main__ - INFO - ============================================================
+2026-07-13 21:09:20,742 - __main__ - INFO - ============================================================
+2026-07-13 21:09:20,742 - __main__ - INFO - ĐỐI CHIẾU KẾT QUẢ VỚI CÁC NGHIÊN CỨU (LITERATURE BENCHMARK)
+2026-07-13 21:09:20,742 - __main__ - INFO - ============================================================
+2026-07-13 21:09:20,758 - __main__ - INFO - Kết quả nhóm — Best model: LightGBM_tuned, AUC = 0.7663, Acc = 0.6917
+2026-07-13 21:09:21,340 - __main__ - INFO - Biểu đồ: D:\ATP_Prediction_Project_FIXED\proj\reports\figures\literature_benchmark.png
+2026-07-13 21:09:21,343 - __main__ - INFO - 
+📚 BẢNG ĐỐI CHIẾU VỚI CÁC NGHIÊN CỨU:
+2026-07-13 21:09:21,343 - __main__ - INFO - Author                         Year   Method                              AUC      Data           
+2026-07-13 21:09:21,344 - __main__ - INFO - ----------------------------------------------------------------------------------------------
+2026-07-13 21:09:21,344 - __main__ - INFO -   Sipko & Knottenbelt (2015)   2015   Logistic Regression + Feature Engineering 0.73     ATP 2005–2014  
+2026-07-13 21:09:21,344 - __main__ - INFO -   Kovalchik (2016)             2016   Elo + Logistic Regression           0.72     ATP 1991–2016  
+2026-07-13 21:09:21,344 - __main__ - INFO -   Cornman et al. (2017)        2017   Neural Network + Random Forest      0.72     ATP 2000–2016  
+2026-07-13 21:09:21,345 - __main__ - INFO -   Gorgi et al. (2019)          2019   Bradley-Terry + Regularized Logistic 0.75     ATP 2000–2018  
+2026-07-13 21:09:21,345 - __main__ - INFO -   Candila & Palazzo (2020)     2020   Gradient Boosting + ANN             0.74     ATP 2013–2019  
+2026-07-13 21:09:21,345 - __main__ - INFO -   Wilkens (2021)               2021   XGBoost + Deep Learning             0.76     ATP 2010–2020  
+2026-07-13 21:09:21,345 - __main__ - INFO - ★ Nhóm nghiên cứu (2025)       2025   LightGBM tuned                      0.77     ATP 2020–2025  
+2026-07-13 21:09:21,345 - __main__ - INFO - ----------------------------------------------------------------------------------------------
+2026-07-13 21:09:21,346 - __main__ - INFO - Typical AUC range: 0.72–0.78
+2026-07-13 21:09:21,346 - __main__ - INFO - Our result: AUC = 0.7663 → WITHIN expected range ✓
+2026-07-13 21:09:21,346 - __main__ - INFO - Report: D:\ATP_Prediction_Project_FIXED\proj\experiments\literature_benchmark.json
+2026-07-13 21:09:21,346 - __main__ - INFO - ============================================================
+2026-07-13 21:09:42,899 - __main__ - INFO - ============================================================
+2026-07-13 21:09:42,899 - __main__ - INFO - PHÂN TÍCH OVERFITTING / UNDERFITTING
+2026-07-13 21:09:42,899 - __main__ - INFO - ============================================================
+2026-07-13 21:09:43,194 - __main__ - INFO - Train: (91913, 48), Val: (33000, 48), Test: (32168, 48)
+2026-07-13 21:09:43,194 - __main__ - INFO - 
+📊 PHÂN TÍCH TRAIN/VAL/TEST GAP...
+2026-07-13 21:09:43,838 - __main__ - INFO -   CatBoost_baseline: Train AUC=0.7547, Val=0.7529, Test=0.7498, Gap=0.0049 → GOOD FIT ✓
+2026-07-13 21:09:46,550 - __main__ - INFO -   LightGBM_baseline: Train AUC=0.7900, Val=0.7480, Test=0.7466, Gap=0.0435 → GOOD FIT ✓
+2026-07-13 21:09:47,209 - __main__ - INFO -   CatBoost_tuned: Train AUC=0.7817, Val=0.7939, Test=0.7650, Gap=0.0167 → GOOD FIT ✓
+2026-07-13 21:09:53,343 - __main__ - INFO -   LightGBM_tuned: Train AUC=0.8337, Val=0.8411, Test=0.7663, Gap=0.0674 → OVERFITTING (gap > 0.05)
+2026-07-13 21:09:54,680 - __main__ - ERROR -   Lỗi XGBoost_tuned: [21:09:54] C:\actions-runner\_work\xgboost\xgboost\src\data\../data/cat_container.h:29: Found a category not in the training set for the 13th (0-based) column: `carpet`
+2026-07-13 21:09:59,193 - __main__ - INFO -   RandomForest_tuned: Train AUC=0.8147, Val=0.8278, Test=0.7577, Gap=0.0570 → OVERFITTING (gap > 0.05)
+2026-07-13 21:09:59,225 - __main__ - INFO - 
+📈 ĐANG TẠO LEARNING CURVES...
+2026-07-13 21:09:59,811 - __main__ - INFO -   n=9191: Train AUC=0.9294, Val AUC=0.7192
+2026-07-13 21:10:00,552 - __main__ - INFO -   n=18382: Train AUC=0.8653, Val AUC=0.7346
+2026-07-13 21:10:01,524 - __main__ - INFO -   n=27573: Train AUC=0.8394, Val AUC=0.7393
+2026-07-13 21:10:02,756 - __main__ - INFO -   n=36765: Train AUC=0.8209, Val AUC=0.7420
+2026-07-13 21:10:04,164 - __main__ - INFO -   n=45956: Train AUC=0.8113, Val AUC=0.7443
+2026-07-13 21:10:05,895 - __main__ - INFO -   n=55147: Train AUC=0.8049, Val AUC=0.7465
+2026-07-13 21:10:07,723 - __main__ - INFO -   n=64339: Train AUC=0.7974, Val AUC=0.7471
+2026-07-13 21:10:09,605 - __main__ - INFO -   n=73530: Train AUC=0.7931, Val AUC=0.7479
+2026-07-13 21:10:11,799 - __main__ - INFO -   n=82721: Train AUC=0.7879, Val AUC=0.7487
+2026-07-13 21:10:13,990 - __main__ - INFO -   n=91913: Train AUC=0.7859, Val AUC=0.7491
+2026-07-13 21:10:13,991 - __main__ - INFO - 
+📉 ĐANG TẠO VALIDATION CURVES...
+2026-07-13 21:10:32,678 - __main__ - INFO -   max_depth: best val AUC = 0.7499 at depth=4
+2026-07-13 21:10:52,124 - __main__ - INFO -   n_estimators: best val AUC = 0.7499 at n=100
+2026-07-13 21:11:07,364 - __main__ - INFO -   learning_rate: best val AUC = 0.7501 at lr=0.02
+2026-07-13 21:11:07,365 - __main__ - INFO - 
+🔄 CROSS-VALIDATION STABILITY...
+2026-07-13 21:26:46,383 - __main__ - INFO - ============================================================
+2026-07-13 21:26:46,384 - __main__ - INFO - PHÂN TÍCH OVERFITTING / UNDERFITTING
+2026-07-13 21:26:46,385 - __main__ - INFO - ============================================================
+2026-07-13 21:26:46,814 - __main__ - INFO - Train: (91913, 48), Val: (33000, 48), Test: (32168, 48)
+2026-07-13 21:26:46,815 - __main__ - INFO - 
+📊 PHÂN TÍCH TRAIN/VAL/TEST GAP...
+2026-07-13 21:26:47,542 - __main__ - INFO -   CatBoost_baseline: Train AUC=0.7547, Val=0.7529, Test=0.7498, Gap=0.0049 → GOOD FIT ✓
+2026-07-13 21:26:51,144 - __main__ - INFO -   LightGBM_baseline: Train AUC=0.7900, Val=0.7480, Test=0.7466, Gap=0.0435 → GOOD FIT ✓
+2026-07-13 21:26:52,034 - __main__ - INFO -   CatBoost_tuned: Train AUC=0.7817, Val=0.7939, Test=0.7650, Gap=0.0167 → GOOD FIT ✓
+2026-07-13 21:26:59,807 - __main__ - INFO -   LightGBM_tuned: Train AUC=0.8337, Val=0.8411, Test=0.7663, Gap=0.0674 → OVERFITTING (gap > 0.05)
+2026-07-13 21:27:01,590 - __main__ - ERROR -   Lỗi XGBoost_tuned: [21:27:01] C:\actions-runner\_work\xgboost\xgboost\src\data\../data/cat_container.h:29: Found a category not in the training set for the 13th (0-based) column: `carpet`
+2026-07-13 21:27:07,424 - __main__ - INFO -   RandomForest_tuned: Train AUC=0.8147, Val=0.8278, Test=0.7577, Gap=0.0570 → OVERFITTING (gap > 0.05)
+2026-07-13 21:27:07,470 - __main__ - INFO - 
+📈 ĐANG TẠO LEARNING CURVES...
+2026-07-13 21:27:08,603 - __main__ - INFO -   n=9191: Train AUC=0.9294, Val AUC=0.7192
+2026-07-13 21:27:09,931 - __main__ - INFO -   n=18382: Train AUC=0.8653, Val AUC=0.7346
+2026-07-13 21:27:11,409 - __main__ - INFO -   n=27573: Train AUC=0.8394, Val AUC=0.7393
+2026-07-13 21:27:13,069 - __main__ - INFO -   n=36765: Train AUC=0.8209, Val AUC=0.7420
+2026-07-13 21:27:14,962 - __main__ - INFO -   n=45956: Train AUC=0.8113, Val AUC=0.7443
+2026-07-13 21:27:16,615 - __main__ - INFO -   n=55147: Train AUC=0.8049, Val AUC=0.7465
+2026-07-13 21:27:18,347 - __main__ - INFO -   n=64339: Train AUC=0.7974, Val AUC=0.7471
+2026-07-13 21:27:20,830 - __main__ - INFO -   n=73530: Train AUC=0.7931, Val AUC=0.7479
+2026-07-13 21:27:23,114 - __main__ - INFO -   n=82721: Train AUC=0.7879, Val AUC=0.7487
+2026-07-13 21:27:26,092 - __main__ - INFO -   n=91913: Train AUC=0.7859, Val AUC=0.7491
+2026-07-13 21:27:26,093 - __main__ - INFO - 
+📉 ĐANG TẠO VALIDATION CURVES...
+2026-07-13 21:27:44,089 - __main__ - INFO -   max_depth: best val AUC = 0.7499 at depth=4
+2026-07-13 21:28:00,592 - __main__ - INFO -   n_estimators: best val AUC = 0.7499 at n=100
+2026-07-13 21:28:14,795 - __main__ - INFO -   learning_rate: best val AUC = 0.7501 at lr=0.02
+2026-07-13 21:28:14,796 - __main__ - INFO - 
+🔄 CROSS-VALIDATION STABILITY...
+2026-07-15 23:04:11,740 - __main__ - INFO - Bắt đầu huấn luyện các mô hình Baseline...
+2026-07-15 23:04:12,324 - __main__ - INFO - Đang huấn luyện RandomForest...
+2026-07-15 23:04:23,415 - __main__ - INFO - RandomForest - Val Acc: 0.6744, Val AUC: 0.7426
+2026-07-15 23:04:23,902 - __main__ - INFO - Đang huấn luyện XGBoost...
+2026-07-15 23:04:27,165 - __main__ - INFO - XGBoost - Val Acc: 0.6666, Val AUC: 0.7324
+2026-07-15 23:04:27,173 - __main__ - INFO - Đang huấn luyện LightGBM...
+2026-07-15 23:04:31,523 - __main__ - INFO - LightGBM - Val Acc: 0.6802, Val AUC: 0.7480
+2026-07-15 23:04:31,532 - __main__ - INFO - Đang huấn luyện CatBoost...
+2026-07-15 23:04:42,058 - __main__ - INFO - CatBoost - Val Acc: 0.6826, Val AUC: 0.7529
+2026-07-15 23:04:42,117 - __main__ - INFO - Hoàn thành huấn luyện baseline models.
+2026-07-15 23:05:32,044 - __main__ - INFO - ============================================================
+2026-07-15 23:05:32,045 - __main__ - INFO - BẮT ĐẦU HYPERPARAMETER TUNING THẬT (Optuna + TimeSeriesCV)
+2026-07-15 23:05:32,046 - __main__ - INFO - Cấu hình: 10 trials/model, 2 folds TimeSeriesSplit, early stopping 30 vòng, có pruning.
+2026-07-15 23:05:32,046 - __main__ - INFO - ============================================================
+2026-07-15 23:05:32,911 - __main__ - INFO - 
+[1/4] Tuning CatBoost...
+2026-07-15 23:25:56,668 - __main__ - INFO - ============================================================
+2026-07-15 23:25:56,668 - __main__ - INFO - BẮT ĐẦU HYPERPARAMETER TUNING THẬT (Optuna + TimeSeriesCV)
+2026-07-15 23:25:56,668 - __main__ - INFO - Cấu hình: 10 trials/model, 2 folds TimeSeriesSplit, early stopping 30 vòng, có pruning.
+2026-07-15 23:25:56,668 - __main__ - INFO - ============================================================
+2026-07-15 23:25:57,519 - __main__ - INFO - 
+[1/4] Tuning CatBoost...

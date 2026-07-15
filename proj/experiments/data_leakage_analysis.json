@@ -1,0 +1,161 @@
+{
+  "analysis": "Data Leakage Impact Analysis",
+  "description": "So sánh hiệu suất model khi sử dụng thông tin trong/sau trận (leakage) vs chỉ sử dụng thông tin trước trận (pre-match). Đây là đóng góp khoa học quan trọng cho thấy nhóm hiểu bản chất ML và biết phát hiện lỗi dữ liệu.",
+  "with_leakage": {
+    "auc": 0.986,
+    "accuracy": 0.9333,
+    "n_features": 42,
+    "top_features": [
+      {
+        "feature": "w_bpfaced",
+        "importance": 882
+      },
+      {
+        "feature": "l_bpfaced",
+        "importance": 845
+      },
+      {
+        "feature": "w_1stwon",
+        "importance": 637
+      },
+      {
+        "feature": "l_1stwon",
+        "importance": 621
+      },
+      {
+        "feature": "l_bpsaved",
+        "importance": 447
+      },
+      {
+        "feature": "w_bpsaved",
+        "importance": 427
+      },
+      {
+        "feature": "l_2ndwon",
+        "importance": 296
+      },
+      {
+        "feature": "w_2ndwon",
+        "importance": 267
+      },
+      {
+        "feature": "winner_rank",
+        "importance": 227
+      },
+      {
+        "feature": "loser_rank",
+        "importance": 211
+      },
+      {
+        "feature": "loser_rank_points",
+        "importance": 118
+      },
+      {
+        "feature": "winner_age",
+        "importance": 117
+      },
+      {
+        "feature": "loser_age",
+        "importance": 114
+      },
+      {
+        "feature": "l_svpt",
+        "importance": 96
+      },
+      {
+        "feature": "winner_rank_points",
+        "importance": 91
+      }
+    ]
+  },
+  "without_leakage": {
+    "auc": 0.7562,
+    "accuracy": 0.6817,
+    "n_features": 23,
+    "top_features": [
+      {
+        "feature": "winner_rank",
+        "importance": 828
+      },
+      {
+        "feature": "loser_rank",
+        "importance": 762
+      },
+      {
+        "feature": "loser_rank_points",
+        "importance": 651
+      },
+      {
+        "feature": "winner_age",
+        "importance": 598
+      },
+      {
+        "feature": "winner_rank_points",
+        "importance": 584
+      },
+      {
+        "feature": "loser_age",
+        "importance": 574
+      },
+      {
+        "feature": "winner_seed",
+        "importance": 267
+      },
+      {
+        "feature": "loser_ht",
+        "importance": 258
+      },
+      {
+        "feature": "winner_ht",
+        "importance": 240
+      },
+      {
+        "feature": "loser_seed",
+        "importance": 221
+      },
+      {
+        "feature": "maxl",
+        "importance": 183
+      },
+      {
+        "feature": "maxw",
+        "importance": 179
+      },
+      {
+        "feature": "year",
+        "importance": 123
+      },
+      {
+        "feature": "psw",
+        "importance": 114
+      },
+      {
+        "feature": "avgw",
+        "importance": 79
+      }
+    ]
+  },
+  "leakage_columns_found": [
+    "w_ace",
+    "w_df",
+    "w_svpt",
+    "w_1stin",
+    "w_1stwon",
+    "w_2ndwon",
+    "l_ace",
+    "l_df",
+    "l_svpt",
+    "l_1stin",
+    "l_1stwon",
+    "l_2ndwon",
+    "w_svgms",
+    "w_bpsaved",
+    "w_bpfaced",
+    "l_svgms",
+    "l_bpsaved",
+    "l_bpfaced",
+    "minutes"
+  ],
+  "auc_drop": 0.2298,
+  "conclusion": "AUC giảm từ 0.9860 xuống 0.7562 (giảm 0.2298) sau khi loại bỏ 19 cột leakage. Điều này chứng minh các thông tin trong trận (ace, double fault, break points...) tạo ra kết quả ảo cực cao, và việc loại bỏ chúng là bắt buộc để model có giá trị dự đoán thực sự."
+}

@@ -1,0 +1,8 @@
+2026-07-13 21:13:23 - project.services.inference - INFO - _load_model_cached:74 - Model loaded successfully: final/final_model.joblib
+2026-07-13 21:14:24 - project.services.inference - INFO - _load_model_cached:74 - Model loaded successfully: CatBoost_baseline.joblib
+2026-07-13 21:14:24 - project.services.inference - INFO - _load_model_cached:74 - Model loaded successfully: LightGBM_baseline.joblib
+2026-07-13 21:14:27 - project.services.inference - INFO - _load_model_cached:74 - Model loaded successfully: RandomForest_baseline.joblib
+2026-07-15 23:01:50 - project.services.inference - INFO - _load_model_cached:74 - Model loaded successfully: final/final_model.joblib
+2026-07-15 23:02:36 - project.services.inference - INFO - _load_model_cached:74 - Model loaded successfully: CatBoost_baseline.joblib
+2026-07-15 23:02:36 - project.services.inference - INFO - _load_model_cached:74 - Model loaded successfully: LightGBM_baseline.joblib
+2026-07-15 23:02:40 - project.services.inference - INFO - _load_model_cached:74 - Model loaded successfully: RandomForest_baseline.joblib

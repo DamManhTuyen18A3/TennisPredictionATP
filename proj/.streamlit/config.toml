@@ -1,0 +1,29 @@
+# Cấu hình theme cho toàn bộ ứng dụng Streamlit.
+#
+# LỖI ĐÃ SỬA (quan trọng): trước đây KHÔNG TỒN TẠI file này trong project.
+# Vì vậy dù project/utils/theme.py có tự bơm CSS tối (dark theme) cho các
+# khối <div> tự vẽ (card, sidebar...), TOÀN BỘ WIDGET GỐC của Streamlit
+# (st.selectbox, st.multiselect, st.date_input, st.number_input,
+# st.dataframe, st.tabs, st.expander, khối code...) vẫn mặc định hiển thị
+# theo THEME SÁNG (nền trắng, chữ đen) — vì bản thân Streamlit không biết
+# app đang muốn theme tối trừ khi được khai báo tại đây.
+#
+# Kết quả: 1 nửa giao diện tối (card tự vẽ) trộn lẫn với 1 nửa giao diện
+# sáng (mọi widget gốc còn lại) → đúng hiện tượng "đen trắng trộn lẫn rất
+# khó nhìn" người dùng gặp phải.
+#
+# File này khai báo theme tối Ở CẤP STREAMLIT (không phải tự vẽ CSS), nên
+# MỌI widget gốc (kể cả những cái theme.py không với tới được) đều tự động
+# đổi sang tối, đồng bộ tuyệt đối với bảng màu "Night Court" trong
+# project/utils/theme.py::ColorPalette.
+
+[theme]
+base = "dark"
+primaryColor = "#D4FF3F"            # = ColorPalette.ACCENT_SPORT (vàng bóng tennis - màu nhấn khi focus/chọn)
+backgroundColor = "#0B120F"         # = ColorPalette.PRIMARY (nền chính)
+secondaryBackgroundColor = "#141F1B" # = ColorPalette.SURFACE (nền card/sidebar/widget)
+textColor = "#EDF2EF"               # = ColorPalette.TEXT_PRIMARY
+font = "sans serif"
+
+[server]
+headless = true

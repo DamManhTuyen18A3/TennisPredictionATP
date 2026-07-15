@@ -1,0 +1,58 @@
+{
+    "CatBoost": {
+        "best_cv_auc": 0.7488873574792997,
+        "best_params": {
+            "depth": 10,
+            "learning_rate": 0.048068241453293054,
+            "iterations": 250,
+            "l2_leaf_reg": 6.364226912831503,
+            "random_strength": 0.038128778966630694,
+            "bagging_temperature": 0.9673494259187038
+        },
+        "n_trials": 10,
+        "tuning_time_seconds": 849.0
+    },
+    "LightGBM": {
+        "best_cv_auc": 0.7471354399545859,
+        "best_params": {
+            "num_leaves": 128,
+            "learning_rate": 0.02008375322689831,
+            "n_estimators": 450,
+            "min_child_samples": 38,
+            "subsample": 0.7748217306283465,
+            "colsample_bytree": 0.5467108360648486,
+            "reg_alpha": 1.180809978028877e-07,
+            "reg_lambda": 0.00011162254727759719
+        },
+        "n_trials": 10,
+        "tuning_time_seconds": 45.0
+    },
+    "XGBoost": {
+        "best_cv_auc": 0.7480115579605187,
+        "best_params": {
+            "max_depth": 9,
+            "learning_rate": 0.01487300397890142,
+            "n_estimators": 300,
+            "min_child_weight": 8,
+            "subsample": 0.9719822207841267,
+            "colsample_bytree": 0.7044040936061595,
+            "gamma": 0.34073482514704545,
+            "reg_alpha": 0.0006071568562908673,
+            "reg_lambda": 1.6564450032083355e-08
+        },
+        "n_trials": 10,
+        "tuning_time_seconds": 148.6
+    },
+    "RandomForest": {
+        "best_cv_auc": 0.746429560976385,
+        "best_params": {
+            "n_estimators": 300,
+            "max_depth": 15,
+            "min_samples_split": 11,
+            "min_samples_leaf": 4,
+            "max_features": "sqrt"
+        },
+        "n_trials": 10,
+        "tuning_time_seconds": 197.4
+    }
+}
